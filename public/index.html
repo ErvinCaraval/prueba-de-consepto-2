@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VisionMate — Analizador de imágenes</title>
+    <style>
+      :root{ --accent:#2b6cb0; --muted:#6b7280; --card:#fff; --bg:#f7fafc }
+      html,body{height:100%}
+      body { font-family: Inter, system-ui, Arial, sans-serif; background:var(--bg); margin:0; padding:2rem; color:#111 }
+      .container{max-width:1000px;margin:0 auto;background:transparent}
+      header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+      .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),#3b82f6);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+      h1{font-size:1.25rem;margin:0}
+      h3{margin:0.5rem 0;font-size:0.95rem}
+      h4{margin:0.5rem 0;font-size:0.9rem}
+      p.lead{margin:0;color:var(--muted)}
+
+      .card{background:var(--card);border-radius:10px;padding:1rem;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+      .layout{display:grid;grid-template-columns:320px 1fr;gap:1rem;margin-top:1rem}
+
+      label{display:block;margin-bottom:0.5rem}
+      input[type=url], input[type=file]{width:100%;padding:.5rem;border:1px solid #e6edf3;border-radius:6px}
+      button{background:var(--accent);color:#fff;border:0;padding:.6rem .9rem;border-radius:8px;cursor:pointer}
+
+      .preview{max-height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f3f4f6;border-radius:8px;padding:8px}
+      .preview img{max-width:100%;max-height:340px;border-radius:6px}
+
+      .results{margin-top:0.5rem;max-height:calc(100vh - 200px);overflow-y:auto;padding-right:0.5rem}
+      .results::-webkit-scrollbar{width:6px}
+      .results::-webkit-scrollbar-track{background:#f0f0f0;border-radius:10px}
+      .results::-webkit-scrollbar-thumb{background:#ccc;border-radius:10px}
+      .results::-webkit-scrollbar-thumb:hover{background:#999}
+      .tag{display:flex;justify-content:space-between;align-items:center;padding:.5rem .8rem;border-radius:6px;background:#f1f5f9;margin-bottom:8px;border:1px solid #e2e8f0;transition:all .2s}
+      .tag:hover{background:#e0eef9;border-color:#2b6cb0}
+      .bar{height:10px;background:#e6eefc;border-radius:999px;overflow:hidden;margin-left:8px;flex:1}
+      .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa)}
+
+      footer{margin-top:1rem;color:var(--muted);font-size:.85rem}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">VM</div>
+        <div>
+          <h1>VisionMate</h1>
+          <p class="lead">Analiza imágenes y genera etiquetas y conceptos con confianza.</p>
+        </div>
+      </header>
+
+      <div class="layout">
+        <div>
+          <div class="card">
+
+
+            <form id="fileForm" enctype="multipart/form-data">
+              <label>Subir archivo</label>
+              <input id="fileInput" name="image" type="file" accept="image/*">
+              <div style="margin-top:.6rem;display:flex;gap:.5rem">
+                <button type="submit">Analizar archivo</button>
+                <button id="clearFile" type="button" style="background:#e2e8f0;color:#111">Limpiar</button>
+              </div>
+            </form>
+
+            <div id="status" style="margin-top:1rem;color:#111"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <h2 style="margin:0 0 0.5rem 0;font-size:1rem">Análisis Completo</h2>
+            <p style="margin:0;color:#6b7280;font-size:0.85rem">Escena • Objetos • Colores • Etiquetas • Rostros</p>
+            <div class="preview" id="preview">Vista previa de la imagen</div>
+            <div class="results" id="results"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer>VisionMate - Análisis de imágenes. Mantén tus credenciales seguras.</footer>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
