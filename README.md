@@ -42,16 +42,7 @@ Nota: por diseño la aplicación delega la inferencia (modelos de visión) a un 
 
 ---
 
-## Requisitos
 
-- Node.js (v14+ recomendado)
-- npm
-- Variables de entorno (en un archivo `.env` o en el entorno de ejecución):
-  - `IMAGGA_API_KEY` — clave de acceso al servicio de análisis (nombre de la variable mantenida por compatibilidad con el código actual)
-  - `IMAGGA_API_SECRET` — secreto de acceso
-  - `IMAGGA_ENDPOINT` — (opcional) URL del endpoint del servicio
-
-> Nota: aunque las variables llevan nombres concretos en el proyecto para mantener compatibilidad, este README evita mencionar el nombre del proveedor del servicio de análisis.
 
 ---
 
@@ -176,13 +167,6 @@ http://localhost:3000
 ✅ Análisis artístico de composición
 ✅ Control de calidad de imágenes
 
-## 📝 Variables de Entorno
-```
-IMAGGA_API_KEY=tu_clave
-IMAGGA_API_SECRET=tu_secreto
-IMAGGA_ENDPOINT=https://api.imagga.com
-PORT=3000
-```
 
 ## 🚀 ¡Listo para usar!
 Tu análisis es ahora **ultra preciso**. Pruébalo con diferentes imágenes.
